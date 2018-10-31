@@ -22,6 +22,8 @@ AllCops:
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
   Max: 80
+  Exclude:
+    - 'config/initializers/*'
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
@@ -298,6 +300,8 @@ Style/RaiseArgs:
 Style/SignalException:
   EnforcedStyle: only_raise
 
+Style/SymbolArray:
+  Enabled: false
 # do / end blocks should be used for side effects,
 # methods that run a block for side effects and have
 # a useful return value are rare, assign the return
@@ -349,6 +353,7 @@ Style/MethodCallWithArgsParentheses:
     - render_wizard
     - redirect_back
     - send_data
+    - run
 
 # Enforcing the names of variables? To single letter ones? Just no.
 Style/SingleLineBlockParams:
@@ -374,13 +379,16 @@ Style/StringLiterals:
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
+# Allow for Trailblazer naming convention
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 # Allow us to use empty `case`
 Style/EmptyCaseCondition:
   Enabled: false
 
-# Prefer `call` over `.()` shortcut
 Style/LambdaCall:
-  EnforcedStyle: call
+  Enabled: false
 
 # Prefer `%r{}` over `//`. It better plays with slashes
 Style/RegexpLiteral:
@@ -395,3 +403,7 @@ Style/TernaryParentheses:
 # Allow feature and scenario
 Capybara/FeatureMethods:
   EnabledMethods: [feature, scenario]
+
+# Allow non-vanilla file paths for Trailblazer to run
+RSpec/FilePath:
+  Enabled: false

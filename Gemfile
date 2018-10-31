@@ -14,13 +14,14 @@ gem 'sorcery'
 
 #=== Front ===#
 gem 'trailblazer-cells'
-gem 'cells-hamlit'
+gem 'cells-slim'
 gem 'cells-rails'
-gem 'hamlit'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier',   '>= 1.3.0'
-gem 'turbolinks', '~> 5'
-gem 'sprockets',  '>= 4.0.0.beta8'
+gem 'slim-rails'
+gem 'jquery-rails', '~> 4.3'
+gem 'sass-rails',   '~> 5.0'
+gem 'uglifier',     '>= 1.3.0'
+gem 'turbolinks',   '~> 5'
+gem 'sprockets',    '>= 4.0.0.beta8'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
@@ -35,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 group :test do
   gem 'capybara'

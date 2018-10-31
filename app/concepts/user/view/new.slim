@@ -1,0 +1,28 @@
+.grid-container
+  .grid-x
+    .cell
+      h1 Welcome to Fakebook!
+
+      p It's just like facebook, except you don't have any friends!
+
+  .grid-x
+    - if model.errors.any?
+      h4 There are errors preventing you to sign up:
+      ul
+        - model.errors.full_messages.each do |error|
+          li= error
+
+    = form_with model: model do |f|
+      .field.medium-6.cell
+        = f.label :email
+        = f.text_field :email
+
+      .field.medium-6.cell
+        = f.label :password
+        = f.password_field :password
+
+      .field.medium-6.cell
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      .field.medium-6.cell
+        = f.submit 'Sign Up'

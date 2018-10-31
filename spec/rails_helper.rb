@@ -2,8 +2,12 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 
-require File.expand_path('../../config/environment', __FILE__)
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+require File.expand_path('../config/environment', __dir__)
+
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
+
 require 'spec_helper'
 require 'rspec/rails'
 
@@ -35,6 +39,6 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) { DatabaseCleaner.start }
-  config.after(:each)  { DatabaseCleaner.clean }
+  config.before { DatabaseCleaner.start }
+  config.after  { DatabaseCleaner.clean }
 end
