@@ -38,17 +38,18 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_racer', platforms: :ruby
 
 group :test do
-  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'rspec-rails',      '~> 3.8'
   gem 'timecop'
 end
 
 group :development, :test do
-  gem 'capybara'
+  gem 'database_cleaner'
   gem 'pry-rails'
   gem 'parallel_tests'
+  gem 'rspec-rails',      '~> 3.8'
   gem 'webmock'
 end
 
