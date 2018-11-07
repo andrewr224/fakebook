@@ -4,30 +4,26 @@ require 'rails_helper'
 
 feature 'User Registration' do
   let(:email)    { Faker::Internet.email }
-  let(:password) { '1234' }
+  let(:password) { Faker::Internet.password(4, 5) }
 
-  before { visit new_user_path }
+  before do
+    visit new_user_path
 
-  def fill_in_registration_form
-    fill_in :user_email, with: email
-    fill_in :user_password, with: password
+    fill_in :user_email,                 with: email
+    fill_in :user_password,              with: password
     fill_in :user_password_confirmation, with: password
 
     click_on 'Sign Up'
   end
 
   it 'greets new user' do
-    fill_in_registration_form
-
     expect(page).to have_content('Greetings, new user!')
   end
 
   context 'with invalid params' do
-    let(:password) { '12' }
+    let(:password) { Faker::Internet.password(1, 2) }
 
     it 'shows registration errors' do
-      fill_in_registration_form
-
       expect(page).to have_content('There are errors preventing you to sign up')
     end
   end

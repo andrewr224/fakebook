@@ -1,0 +1,22 @@
+.grid-container
+  .grid-x
+    .cell
+      h1 Welcome to Fakebook!
+
+      p It's just like facebook, except you don't have any friends!
+
+  .grid-x
+    .cell
+      h3 Login
+  .grid-x
+    = form_with url: user_sessions_path do |f|
+      .field.medium-6.cell
+        = f.label :email
+        = f.text_field :email
+
+      .field.medium-6.cell
+        = f.label :password
+        = f.password_field :password
+
+      .field.medium-6.cell
+        = f.submit 'Log In'

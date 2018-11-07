@@ -41,4 +41,7 @@ RSpec.configure do |config|
 
   config.before { DatabaseCleaner.start }
   config.after  { DatabaseCleaner.clean }
+
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+  config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
 end
