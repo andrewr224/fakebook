@@ -11,6 +11,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'trailblazer'
 gem 'trailblazer-rails'
 gem 'sorcery'
+gem 'pundit'
+gem 'rails-routes'
 
 #=== Front ===#
 gem 'trailblazer-cells'
