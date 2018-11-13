@@ -12,7 +12,16 @@
         - model.errors.full_messages.each do |error|
           li= error
 
-    = form_with model: model do |f|
+    = form_with model: model, id: 'registration' do |f|
+      = fields_for :profile do |pf|
+        .field.medium-6.cell
+          = f.label :first_name
+          = f.text_field :first_name
+
+        .field.medium-6.cell
+          = f.label :last_name
+          = f.text_field :last_name
+
       .field.medium-6.cell
         = f.label :email
         = f.text_field :email
@@ -21,8 +30,17 @@
         = f.label :password
         = f.password_field :password
 
-      .field.medium-6.cell
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
+      = fields_for :profile do |pf|
+        .field.medium-6.cell
+          = f.label :birthday
+          = f.date_field :birthday, min: (Date.today - 100.years), max: Date.today
+
+        .field.medium-6.cell
+          = f.label :male
+          = f.radio_button :sex, :male
+        .field.medium-6.cell
+          = f.label :female
+          = f.radio_button :sex, :female
+
       .field.medium-6.cell
         = f.submit 'Sign Up'

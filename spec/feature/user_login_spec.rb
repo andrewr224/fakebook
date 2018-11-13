@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 feature 'User Login' do
-  let!(:user)    { create(:user) }
+  let!(:user)    { create(:user, :with_profile) }
   let(:email)    { user.email }
   let(:password) { Faker::Internet.password(4, 5) }
 
