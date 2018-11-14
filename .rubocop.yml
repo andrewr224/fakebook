@@ -321,10 +321,6 @@ Style/NumericLiterals:
 Style/ReturnNil:
   Enabled: true
 
-# This cop checks for the use of strings as keys in hashes. The use of symbols is preferred instead
-Style/StringHashKeys:
-  Enabled: true
-
 Style/MethodCallWithArgsParentheses:
   Enabled: true
   Exclude:
@@ -374,7 +370,7 @@ Style/FrozenStringLiteralComment:
 
 # Quotes
 Style/StringLiterals:
-  EnforcedStyle: single_quotes
+  EnforcedStyle: double_quotes
 
 # Allow us to use `alias_method` in class body
 Style/Alias:

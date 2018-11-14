@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
-require File.expand_path('../config/environment', __dir__)
+require File.expand_path("../config/environment", __dir__)
 
 if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
+  abort("The Rails environment is running in production mode!")
 end
 
-require 'spec_helper'
-require 'rspec/rails'
+require "spec_helper"
+require "rspec/rails"
 
-require 'faker'
-require 'capybara/rspec'
-require 'webmock/rspec'
+require "faker"
+require "capybara/rspec"
+require "webmock/rspec"
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each(&method(:require))
+Dir[Rails.root.join("spec/support/**/*.rb")].each(&method(:require))
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -42,6 +42,6 @@ RSpec.configure do |config|
   config.before { DatabaseCleaner.start }
   config.after  { DatabaseCleaner.clean }
 
-  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
   config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
+  config.include TestHelpers::Features, type: :feature
 end

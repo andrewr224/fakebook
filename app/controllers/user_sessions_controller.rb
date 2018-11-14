@@ -7,9 +7,9 @@ class UserSessionsController < ApplicationController
 
   def create
     @user = login(params[:email], params[:password])
-    return redirect_to user_path(@user), notice: 'Welcome back, user!' if @user
+    return redirect_to user_path(@user), notice: "Welcome back, user!" if @user
 
-    flash.now[:alert] = 'Login failed'
+    flash.now[:alert] = "Login failed"
     render cell(UserSession::Cell::New, @form)
   end
 

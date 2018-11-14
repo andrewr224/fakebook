@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root "user_sessions#new"
+  resources :posts, only: [:index, :new, :create, :show]
 end

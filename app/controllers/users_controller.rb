@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
     run User::Create do |result|
-      return redirect_to user_path(result['model'])
+      return redirect_to user_path(result["model"])
     end
 
     render cell(User::Cell::New, @form)
@@ -16,6 +16,6 @@ class UsersController < ApplicationController
 
   def show
     run User::Show
-    render cell(User::Cell::Show, result['model'])
+    render cell(User::Cell::Show, result["model"])
   end
 end

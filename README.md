@@ -30,13 +30,14 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Implement simple authentication with Sorcery and Trailblazer
-* Add user profile
-* Add user posts with actiontext
 * Add user news (posts index)
+* Squeeze signin and signup onto one page
 * Add style to the project
-* Populate Fakebook with fake users
-* Create jobs to add new user posts (and remove old ones
 * Implement Falcon server
+* Add user friends
+* Refine user news to show only friends posts
+* Implement Actiontext
+* Populate Fakebook with fake users
+* Create jobs to add new user posts (and remove old ones)
 * Switch from sprockets to webpacker
 * Encrypt user emails

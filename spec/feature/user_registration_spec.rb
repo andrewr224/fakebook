@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-feature 'User Registration' do
+feature "User Registration" do
   let(:email)      { Faker::Internet.email }
   let(:password)   { Faker::Internet.password(4, 5) }
   let(:first_name) { Faker::Name.first_name }
@@ -12,26 +12,26 @@ feature 'User Registration' do
   before do
     visit new_user_path
 
-    within '#registration' do
+    within "#registration" do
       fill_in :user_first_name, with: first_name
       fill_in :user_last_name,  with: last_name
       fill_in :user_email,      with: email
       fill_in :user_password,   with: password
       choose sex
+
+      click_on "Sign Up"
     end
-
-    click_on 'Sign Up'
   end
 
-  it 'greets new user' do
-    expect(page).to have_content('Greetings, new user!')
+  it "greets new user" do
+    expect(page).to have_content("Greetings, new user!")
   end
 
-  context 'with invalid params' do
+  context "with invalid params" do
     let(:password) { Faker::Internet.password(1, 2) }
 
-    it 'shows registration errors' do
-      expect(page).to have_content('There are errors preventing you to sign up')
+    it "shows registration errors" do
+      expect(page).to have_content("There are errors preventing you to sign up")
     end
   end
 end
