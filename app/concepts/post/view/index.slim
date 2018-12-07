@@ -1,0 +1,11 @@
+.grid-container
+  .grid-x
+    .cell
+      h1 Your news feed
+
+  .grid-x
+    - if model.none?
+      h3 "Nothing here yet"
+
+    - model.each do |post|
+      p= post.body

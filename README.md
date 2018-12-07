@@ -30,13 +30,15 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Add user news (posts index)
 * Squeeze signin and signup onto one page
+* Improve Post#index to use partial cells
 * Add style to the project
 * Implement Falcon server
 * Add user friends
-* Refine user news to show only friends posts
+* Refine user news to show only friends posts [?]
 * Implement Actiontext
+* Add user comments (maybe post subclass)
+* Add pagination
 * Populate Fakebook with fake users
 * Create jobs to add new user posts (and remove old ones)
 * Switch from sprockets to webpacker

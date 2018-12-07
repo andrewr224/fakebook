@@ -3,7 +3,10 @@
 class PostsController < ApplicationController
   before_action :process_params!, only: [:create]
 
-  def index; end
+  def index
+    run Post::Index
+    render cell(Post::Cell::Index, result["model"])
+  end
 
   def new
     run Post::New
