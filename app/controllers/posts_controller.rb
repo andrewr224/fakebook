@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    run Post::Create do |result|
-      return redirect_to post_path(result["model"]), notice: success_notice
+    run Post::Create do |_|
+      return redirect_to posts_path, notice: "Your Post has been created!"
     end
 
     render cell(Post::Cell::New, @form)
@@ -27,10 +27,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def success_notice
-    "Your Post has been created!"
-  end
 
   def process_params!
     params.merge!("current_user" => current_user)

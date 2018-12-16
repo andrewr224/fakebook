@@ -11,8 +11,8 @@ html lang="en"
     = csrf_meta_tags
 
   body
-    = html_escape cell(Fakebook::Cell::TopBar, nil, current_user: current_user, controller_name: controller_name)
-    = html_escape cell(Fakebook::Cell::Flash, nil, flash: flash)
+    = cell(Fakebook::Cell::TopBar, nil, current_user: current_user, controller_name: controller_name).to_s.html_safe
+    = cell(Fakebook::Cell::Flash, nil, flash: flash).to_s.html_safe
 
     .grid-container
       = yield

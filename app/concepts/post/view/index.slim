@@ -1,12 +1,12 @@
+= cell(Post::Cell::New, new_post)
+
 .grid-x
   .cell
     h1 Your news feed
 
 .grid-x
   - if model.none?
-    h3 Nothing here yet
+    h3 Nothing here yet. Create new post now!
 
   - model.each do |post|
-    .cell
-      p= post.body
-      p= "by #{post.user.email}"
+    = cell(Post::Cell::Show, post)

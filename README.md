@@ -30,9 +30,11 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Improve Post#index to use partial cells
 * Implement Falcon server
 * Add user friends
+* Implement authenticated root
+* Implement authorization
+* Add user likes
 * Switch from sprockets to webpacker
 * Add style to the project
 * Refine user news to show only friends posts [?]
@@ -42,3 +44,11 @@ $ bundle exec rake parallel:spec
 * Populate Fakebook with fake users
 * Create jobs to add new user posts (and remove old ones)
 * Encrypt user emails
+
+### DONE:
+* Improve Post#index to use partial cells
+* Squeeze signin and signup onto one page
+* Add user news (posts index)
+* Add user posts
+* Add user profile
+* Implement simple authentication with Sorcery and Trailblazer

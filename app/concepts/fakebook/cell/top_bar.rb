@@ -8,7 +8,7 @@ module Fakebook
       end
 
       def user_email
-        options[:current_user].email
+        options[:current_user]&.email
       end
 
       def sessions_controller?
