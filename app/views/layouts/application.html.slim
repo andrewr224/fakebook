@@ -4,14 +4,16 @@ html lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-    title= content_for?(:title) ? yield(:title) : 'Fakebook'
+    title= content_for?(:title) ? yield(:title) : "Fakebook"
 
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
   body
-    - flash.each do |key, value|
-      .alert{ class: key }= value
+    = html_escape cell(Fakebook::Cell::TopBar, nil, current_user: current_user, controller_name: controller_name)
+    = html_escape cell(Fakebook::Cell::Flash, nil, flash: flash)
+    = html_escape cell(Fakebook::Cell::Greeting, nil)
 
-    = yield
+    .grid-container
+      = yield

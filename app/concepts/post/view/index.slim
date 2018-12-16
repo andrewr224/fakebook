@@ -1,11 +1,12 @@
-.grid-container
-  .grid-x
+.grid-x
+  .cell
+    h1 Your news feed
+
+.grid-x
+  - if model.none?
+    h3 Nothing here yet
+
+  - model.each do |post|
     .cell
-      h1 Your news feed
-
-  .grid-x
-    - if model.none?
-      h3 "Nothing here yet"
-
-    - model.each do |post|
       p= post.body
+      p= "by #{post.user.email}"

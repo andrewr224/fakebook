@@ -5,7 +5,7 @@ module TestHelpers
     def login(user, password: random_password)
       user.update_attributes password: password
 
-      visit new_user_session_path
+      visit root_path
 
       fill_in :email,    with: user.email
       fill_in :password, with: password
