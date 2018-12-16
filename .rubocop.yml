@@ -321,41 +321,6 @@ Style/NumericLiterals:
 Style/ReturnNil:
   Enabled: true
 
-Style/MethodCallWithArgsParentheses:
-  Enabled: true
-  Exclude:
-    - 'config/**/*'
-    - 'config.ru'
-    - 'spec/**/*/'
-  IgnoredMethods:
-    - load
-    - puts
-    - raise
-    - redirect_to
-    - render_to_string
-    - redirect_back
-    - render
-    - respond_with
-    - render_with_message
-    - respond_with_errors
-    - head
-    - respond_as_html
-    - respond_as_json
-    - require
-    - acts_as_token_authentication_handler_for
-    - require_relative
-    - javascript_include_tag
-    - stylesheet_link_tag
-    - render_wizard
-    - redirect_back
-    - send_data
-    - run
-    - redirect_back_or_to
-
-# Enforcing the names of variables? To single letter ones? Just no.
-Style/SingleLineBlockParams:
-  Enabled: false
-
 # Check with yard instead.
 Style/Documentation:
   Enabled: false
