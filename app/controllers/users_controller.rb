@@ -15,7 +15,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    run User::Show
-    render cell(User::Cell::Show, result["model"])
+    run User::Show do |result|
+      return render cell(User::Cell::Show, result["model"])
+    end
+
+    redirect_to root_path, alert: "User not found."
   end
 end

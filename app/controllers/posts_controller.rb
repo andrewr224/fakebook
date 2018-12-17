@@ -22,8 +22,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    run Post::Show
-    render cell(Post::Cell::Show, result["model"])
+    run Post::Show do |result|
+      return render cell(Post::Cell::Show, result["model"])
+    end
+
+    redirect_to posts_path, alert: "Record not found."
   end
 
   private
