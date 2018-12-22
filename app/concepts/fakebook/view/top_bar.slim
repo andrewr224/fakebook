@@ -8,6 +8,7 @@
       .grid-x
         - if signed_in?
           .cell= user_name
+          .cell= link_to "Log Out", :logout, method: :post
 
         - elsif !sessions_controller?
           = form_with url: user_sessions_path do |f|

@@ -3,6 +3,8 @@
 class UsersController < ApplicationController
   before_action :process_params!, only: :create
 
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     run User::Create::Present
     render cell(User::Cell::New, @form)

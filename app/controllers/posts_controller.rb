@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    run Post::Create do |_|
+    run Post::Create do
       return redirect_to posts_path, notice: "Your Post has been created!"
     end
 

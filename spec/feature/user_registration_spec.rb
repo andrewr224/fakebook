@@ -11,7 +11,7 @@ feature "User Registration" do
   let(:sex)        { %i[profile_sex_male profile_sex_female].sample }
 
   before do
-    visit root_path
+    visit new_user_path
 
     within "#registration" do
       fill_in :profile_first_name, with: first_name

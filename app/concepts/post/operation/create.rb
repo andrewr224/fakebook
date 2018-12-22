@@ -7,7 +7,7 @@ class Post::Create < Trailblazer::Operation
   step Contract::Validate(key: :post)
   step Contract::Persist()
 
-  def assign_user!(options, **)
-    options["model"].user = options["params"]["current_user"]
+  def assign_user!(options, params:, **)
+    options["model"].user = params["current_user"]
   end
 end

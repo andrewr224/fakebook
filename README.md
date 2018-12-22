@@ -30,18 +30,17 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Add user friends
-* Implement authenticated root
-* Implement authorization
-* Add user likes
 * Switch from sprockets to webpacker
 * Add style to the project
+* Add messages
+* Add user friends
 * Refine user news to show only friends posts [?]
 * Implement Actiontext
-* Add user comments (maybe post subclass)
-* Add pagination
 * Populate Fakebook with fake users
 * Create jobs to add new user posts (and remove old ones)
+* Add user likes
+* Add user comments (maybe post subclass)
+* Add pagination
 * Encrypt user emails
 * Implement Falcon server
 

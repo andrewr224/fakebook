@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserSessionsController < ApplicationController
+  skip_before_action :require_login, except: [:destroy]
+
   def new
     render cell(UserSession::Cell::New, @form)
   end
@@ -13,10 +15,11 @@ class UserSessionsController < ApplicationController
     render cell(UserSession::Cell::New, @form)
   end
 
-  # def destroy
-  #   logout
-  #   redirect_to(:users, notice: 'Logged out!')
-  # end
+  def destroy
+    logout
+
+    redirect_to new_user_path, notice: "Farewell!"
+  end
 
   private
 
