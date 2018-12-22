@@ -3,7 +3,7 @@
 require "rails_helper"
 
 feature "Create Post" do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, :with_profile) }
   let(:post) { Faker::MostInterestingManInTheWorld.quote }
 
   before do
@@ -18,14 +18,14 @@ feature "Create Post" do
     end
   end
 
-  it "creates a new post" do
+  scenario "creates a new post" do
     expect(page).to have_content("Your Post has been created!")
   end
 
   context "with invalid params" do
     let(:post) {}
 
-    it "shows creation error" do
+    scenario "shows creation error" do
       expect(page).to have_content("Your post was not created")
     end
   end

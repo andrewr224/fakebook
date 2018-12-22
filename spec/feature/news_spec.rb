@@ -3,7 +3,7 @@
 require "rails_helper"
 
 feature "News Feed" do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, :with_profile) }
 
   context "when there are posts" do
     let(:target_post) { create(:post) }
@@ -18,7 +18,7 @@ feature "News Feed" do
       visit posts_path
     end
 
-    it "shows all posts" do
+    scenario "shows all posts" do
       expect(page).to have_content(target_post.body)
     end
   end
@@ -30,7 +30,7 @@ feature "News Feed" do
       visit posts_path
     end
 
-    it "shows 'Nothing here' message" do
+    scenario "shows 'Nothing here' message" do
       expect(page).to have_content("Nothing here yet")
     end
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :process_params!, only: [:create]
+  before_action :process_params!, only: :create
 
   def index
     run Post::Index

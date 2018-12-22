@@ -7,7 +7,7 @@
     .grid-container
       .grid-x
         - if signed_in?
-          .cell= user_email
+          .cell= user_name
 
         - elsif !sessions_controller?
           = form_with url: user_sessions_path do |f|

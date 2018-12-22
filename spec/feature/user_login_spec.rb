@@ -3,7 +3,8 @@
 require "rails_helper"
 
 feature "User Login" do
-  let!(:user)    { create(:user, :with_profile) }
+  let(:user)     { create(:user, :with_profile) }
+  let(:profile)  { user.profile }
   let(:email)    { user.email }
   let(:password) { Faker::Internet.password(4, 5) }
 
@@ -19,8 +20,8 @@ feature "User Login" do
       click_on "Log In"
     end
 
-    it "logs user in" do
-      expect(page).to have_content("Welcome back, user!")
+    scenario "logs user in" do
+      expect(page).to have_content("Welcome back, #{profile.first_name}!")
     end
   end
 
@@ -36,7 +37,7 @@ feature "User Login" do
       click_on "Log In"
     end
 
-    it "shows registration errors" do
+    scenario "shows registration errors" do
       expect(page).to have_content("Login failed")
     end
   end

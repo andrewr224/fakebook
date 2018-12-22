@@ -25,16 +25,17 @@ describe Fakebook::Cell::TopBar do
     end
   end
 
-  describe "#user_email" do
-    subject(:user_email) do
-      described_class.(nil, current_user: current_user).user_email
+  describe "#user_name" do
+    subject(:user_name) do
+      described_class.(nil, current_user: current_user).user_name
     end
 
     context "with current_user" do
-      let(:current_user) { create(:user) }
+      let(:current_user) { create(:user, :with_profile) }
+      let(:profile)      { current_user.profile }
 
       it "returns true" do
-        expect(user_email).to eq current_user.email
+        expect(user_name).to match profile.first_name
       end
     end
 
@@ -42,7 +43,7 @@ describe Fakebook::Cell::TopBar do
       let(:current_user) {}
 
       it "returns true" do
-        expect(user_email).to be_nil
+        expect(user_name).to be_nil
       end
     end
   end
