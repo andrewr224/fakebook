@@ -1,0 +1,22 @@
+@import 'variables';
+
+.top-bar {
+  background-color: $background-main;
+
+  a {
+    color: $color-main;
+  }
+
+  ul {
+    background-color: $background-main;
+  }
+
+  #login-form {
+    display: flex;
+
+    .login-label {
+      margin-top: 7px;
+      margin-right: 10px;
+    }
+  }
+}

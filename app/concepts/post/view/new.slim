@@ -1,4 +1,4 @@
-.grid-container
+.grid-container.post-form
   .grid-x
     .cell
       h1 Create your new post!
@@ -15,4 +15,4 @@
         = f.text_area :body
 
       .field.medium-6.cell
-        = f.submit 'Create Post'
+        = f.submit 'Create Post', class: "button"

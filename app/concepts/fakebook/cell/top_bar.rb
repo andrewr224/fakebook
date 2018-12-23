@@ -4,7 +4,11 @@ module Fakebook
   module Cell
     class TopBar < Trailblazer::Cell
       def signed_in?
-        options[:current_user].present?
+        current_user.present?
+      end
+
+      def current_user
+        @current_user ||= options[:current_user]
       end
 
       def user_name
@@ -18,7 +22,7 @@ module Fakebook
       private
 
       def profile
-        options[:current_user]&.profile
+        current_user&.profile
       end
     end
   end

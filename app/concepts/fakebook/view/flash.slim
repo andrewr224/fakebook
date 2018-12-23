@@ -1,2 +1,3 @@
 - flash.each do |key, value|
-  .alert{ class: key }= value
+  .callout class= foundation_class(key)
+     = value

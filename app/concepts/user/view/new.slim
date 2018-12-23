@@ -1,45 +1,44 @@
-= cell(Fakebook::Cell::Greeting, nil)
-
 .grid-x
-  .cell
+  .cell.medium-6
+    = cell(Fakebook::Cell::Greeting, nil)
+
+  .cell.medium-6
     h3 Don't have an account? Create one!
+    - if model.errors.any?
+      h4 There are errors preventing you to sign up:
+      ul
+        - model.errors.full_messages.each do |error|
+          li= error
 
-.grid-x
-  - if model.errors.any?
-    h4 There are errors preventing you to sign up:
-    ul
-      - model.errors.full_messages.each do |error|
-        li= error
+    = form_with model: model, id: "registration" do |f|
+      = fields_for :profile do |pf|
+        .field.medium-6.cell
+          = pf.label :first_name
+          = pf.text_field :first_name
 
-  = form_with model: model, id: "registration" do |f|
-    = fields_for :profile do |pf|
-      .field.medium-6.cell
-        = pf.label :first_name
-        = pf.text_field :first_name
-
-      .field.medium-6.cell
-        = pf.label :last_name
-        = pf.text_field :last_name
-
-    .field.medium-6.cell
-      = f.label :email
-      = f.text_field :email
-
-    .field.medium-6.cell
-      = f.label :password
-      = f.password_field :password
-
-    = fields_for :profile do |pf|
-      .field.medium-6.cell
-        = pf.label :birthday
-        = pf.date_field :birthday, min: (Date.today - 100.years), max: Date.today
+        .field.medium-6.cell
+          = pf.label :last_name
+          = pf.text_field :last_name
 
       .field.medium-6.cell
-        = pf.label :male
-        = pf.radio_button :sex, :male
-      .field.medium-6.cell
-        = pf.label :female
-        = pf.radio_button :sex, :female
+        = f.label :email
+        = f.text_field :email
 
-    .field.medium-6.cell
-      = f.submit "Sign Up"
+      .field.medium-6.cell
+        = f.label :password
+        = f.password_field :password
+
+      = fields_for :profile do |pf|
+        .field.medium-6.cell
+          = pf.label :birthday
+          = pf.date_field :birthday, min: (Date.today - 100.years), max: Date.today
+
+        .field.medium-6.cell
+          = pf.label :male
+          = pf.radio_button :sex, :male
+        .field.medium-6.cell
+          = pf.label :female
+          = pf.radio_button :sex, :female
+
+      .field.medium-6.cell
+        = f.submit "Sign Up", class: "button"

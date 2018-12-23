@@ -19,8 +19,30 @@ describe Fakebook::Cell::TopBar do
     context "with no user" do
       let(:current_user) {}
 
-      it "returns true" do
+      it "returns false" do
         expect(signed_in?).to be false
+      end
+    end
+  end
+
+  describe "#signed_in?" do
+    subject(:current_user) do
+      described_class.(nil, current_user: user).current_user
+    end
+
+    context "with current_user" do
+      let(:user) { create(:user) }
+
+      it "returns current_user" do
+        expect(current_user).to eq current_user
+      end
+    end
+
+    context "with no user" do
+      let(:user) {}
+
+      it "returns nil" do
+        expect(current_user).to be nil
       end
     end
   end
