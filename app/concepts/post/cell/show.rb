@@ -3,5 +3,17 @@
 module Post::Cell
   class Show < Trailblazer::Cell
     include ActionView::RecordIdentifier
+
+    delegate :profile, to: :author
+
+    def author_name
+      "#{profile.first_name} #{profile.last_name}"
+    end
+
+    private
+
+    def author
+      model.user
+    end
   end
 end

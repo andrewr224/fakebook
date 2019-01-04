@@ -1,18 +1,17 @@
-.grid-container.post-form
-  .grid-x
-    .cell
-      h1 Create your new post!
+.grid-x
+  .cell
+    h3 Create your new post!
 
-  .grid-x
-    - if model.errors.any?
-      h4 Your post was not created due to:
-      ul
-        - model.errors.full_messages.each do |error|
-          li= error
+.grid-x
+  - if model.errors.any?
+    h4 Your post was not created due to:
+    ul
+      - model.errors.full_messages.each do |error|
+        li= error
 
-    = form_with model: model, id: 'new_post' do |f|
-      .field.medium-6.cell
-        = f.text_area :body
+  = form_with model: model, id: "new_post", class: "post-form" do |f|
+    .field.medium-6.cell
+      = f.text_area :body
 
-      .field.medium-6.cell
-        = f.submit 'Create Post', class: "button"
+    .field.medium-6.cell
+      = f.submit 'Create Post', class: "button"

@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :post do
     body { Faker::MostInterestingManInTheWorld.quote }
 
-    association :user, strategy: :build
+    association :user, :with_profile, strategy: :build
   end
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :process_params!, only: :create
+  before_action :process_create_params!, only: :create
+  before_action :process_show_params!,   only: :show
 
   skip_before_action :require_login, only: [:new, :create]
 
@@ -38,7 +39,11 @@ class UsersController < ApplicationController
     current_user.profile
   end
 
-  def process_params!
+  def process_create_params!
     params["user"].merge!("profile" => params["profile"])
+  end
+
+  def process_show_params!
+    params.merge!("current_user" => current_user)
   end
 end

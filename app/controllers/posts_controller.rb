@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     run Post::Create do
-      return redirect_to posts_path, notice: "Your Post has been created!"
+      return redirect_on_success
     end
 
     render cell(Post::Cell::New, @form)
@@ -30,6 +30,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def redirect_on_success
+    redirect_back fallback_location: posts_path,
+                  notice:            "Your Post has been created!"
+  end
 
   def process_params!
     params.merge!("current_user" => current_user)

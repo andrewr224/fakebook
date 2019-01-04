@@ -5,6 +5,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string  :last_name,  null: false
       t.string  :sex,        null: false
       t.datetime :birthday,  null: false
+      t.text :about_me
 
       t.references :user, index: true, foreign_key: true
 
