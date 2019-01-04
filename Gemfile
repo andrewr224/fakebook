@@ -51,7 +51,6 @@ group :test do
 end
 
 group :development, :test do
-  gem "database_cleaner"
   gem "parallel_tests"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.8"

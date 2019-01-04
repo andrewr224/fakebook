@@ -30,9 +30,11 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Switch from sprockets to webpacker
-* Add style to the project
+* Add user edit
 * Add messages
+* Add policy
+- release -
+
 * Add user friends
 * Refine user news to show only friends posts [?]
 * Implement Actiontext
@@ -42,6 +44,7 @@ $ bundle exec rake parallel:spec
 * Add user comments (maybe post subclass)
 * Add pagination
 * Encrypt user emails
+* Switch from sprockets to webpacker
 * Implement Falcon server
 
 ### DONE:

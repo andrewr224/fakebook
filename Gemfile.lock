@@ -83,7 +83,6 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
-    database_cleaner (1.7.0)
     declarative (0.0.10)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -340,7 +339,6 @@ DEPENDENCIES
   capybara
   cells-rails
   cells-slim
-  database_cleaner
   factory_bot_rails
   faker
   foundation-rails
@@ -379,4 +377,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

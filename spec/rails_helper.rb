@@ -31,17 +31,6 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:transaction)
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before { DatabaseCleaner.start }
-  config.after  { DatabaseCleaner.clean }
-
   config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
   config.include TestHelpers::Features, type: :feature
 end
