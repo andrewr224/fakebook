@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+  resources :users, except: [:index, :destroy]
 end

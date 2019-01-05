@@ -2,8 +2,16 @@
   .cell.text-center
     h1= full_name
 
-  .cell.text-right
+  .cell
     p= "Birthday: #{birthday}"
+
+- if profile.about_me.present?
+  .cell
+    p= "About me: #{profile.about_me}"
+
+- if page_owner?
+  .cell
+    = link_to "Edit Profile", edit_user_path(model), class: "button"
 
 - if page_owner?
   = cell(Post::Cell::New, new_post)

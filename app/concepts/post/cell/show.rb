@@ -10,8 +10,6 @@ module Post::Cell
       "#{profile.first_name} #{profile.last_name}"
     end
 
-    private
-
     def author
       model.user
     end

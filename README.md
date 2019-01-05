@@ -30,9 +30,7 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Add user edit
 * Add messages
-* Add policy
 * Add user friends
 * Refine user news to show only friends posts [?]
 * Implement Actiontext
@@ -46,6 +44,9 @@ $ bundle exec rake parallel:spec
 * Implement Falcon server
 
 ### DONE:
+* Add policy
+* Add user edit
+* Add style to the project
 * Improve Post#index to use partial cells
 * Squeeze signin and signup onto one page
 * Add user news (posts index)

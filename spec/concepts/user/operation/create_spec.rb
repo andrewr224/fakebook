@@ -25,6 +25,10 @@ describe User::Create do
     expect(result["model"]).to be_a User
   end
 
+  it "adds a welcome message" do
+    expect(result["message"]).to match "Greetings"
+  end
+
   context "with invalid params" do
     let(:user_params) { attributes_for(:user).merge(email: nil) }
 

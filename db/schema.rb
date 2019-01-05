@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_091556) do
     t.string "last_name", null: false
     t.string "sex", null: false
     t.datetime "birthday", null: false
+    t.text "about_me"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

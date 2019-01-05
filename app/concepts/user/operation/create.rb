@@ -9,4 +9,14 @@ class User::Create < Trailblazer::Operation
   step Nested(Present)
   step Contract::Validate(key: :user)
   step Contract::Persist()
+  step :assign_profile!
+  step :add_welcome_message!
+
+  def assign_profile!(options, **)
+    options["profile"] = options["model"].profile
+  end
+
+  def add_welcome_message!(options, **)
+    options["message"] = "Greetings, #{options['profile'].first_name}!"
+  end
 end

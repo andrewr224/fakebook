@@ -1,0 +1,41 @@
+.grid-x
+  .cell.medium-6
+    = form_with model: model, id: "edit_user", local: true do |f|
+      = fields_for model.profile do |pf|
+        .field
+          = pf.label :first_name
+          = pf.text_field :first_name
+
+        .field
+          = pf.label :last_name
+          = pf.text_field :last_name
+
+      .field
+        = f.label :email
+        = f.text_field :email, disabled: true
+
+      = fields_for model.profile do |pf|
+        .field
+          = pf.label :birthday
+          = pf.date_field :birthday, min: (Date.today - 100.years), max: Date.today, disabled: true
+
+        .field
+          = pf.label :male
+          = pf.radio_button :sex, :male, disabled: true
+        .field
+          = pf.label :female
+          = pf.radio_button :sex, :female, disabled: true
+
+        .field
+          = pf.label :about_me
+          = pf.text_area :about_me
+
+      .field
+        = f.submit "Update", class: "button"
+
+  - if model.errors.any?
+    .cell.medium-6.user-errors
+      h4 There are errors preventing you from updating your profile:
+      ul
+        - model.errors.full_messages.each do |error|
+          li= error
