@@ -21,7 +21,7 @@ describe Post::Index do
 
   context "when there are no posts" do
     it "doesn't return any posts" do
-      expect(result["model"].length).to eq(0)
+      expect(result["model"]).to be_empty
     end
   end
 end

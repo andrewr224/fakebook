@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_091556) do
+ActiveRecord::Schema.define(version: 2019_01_08_091124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,27 @@ ActiveRecord::Schema.define(version: 2018_11_15_091556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "dialogues", force: :cascade do |t|
+  end
+
+  create_table "dialogues_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "dialogue_id"
+    t.index ["dialogue_id"], name: "index_dialogues_users_on_dialogue_id"
+    t.index ["user_id"], name: "index_dialogues_users_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "dialogue_id"
+    t.text "text", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dialogue_id"], name: "index_messages_on_dialogue_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -54,6 +75,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_091556) do
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end
 
+  add_foreign_key "dialogues_users", "dialogues"
+  add_foreign_key "dialogues_users", "users"
+  add_foreign_key "messages", "dialogues"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
 end

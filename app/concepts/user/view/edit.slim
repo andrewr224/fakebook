@@ -33,6 +33,9 @@
       .field
         = f.submit "Update", class: "button"
 
+    .cell
+      = cell(Fakebook::Cell::BackLink, nil)
+
   - if model.errors.any?
     .cell.medium-6.user-errors
       h4 There are errors preventing you from updating your profile:

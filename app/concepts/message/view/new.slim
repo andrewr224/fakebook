@@ -1,0 +1,8 @@
+.grid-x
+  = form_with model: model, id: "new_message" do |f|
+    = f.hidden_field :dialogue_id, value: dialogue_id
+    .field.medium-6.cell
+      = f.text_area :text
+
+    .field.medium-6.cell
+      = f.submit "Send Message", class: "button"

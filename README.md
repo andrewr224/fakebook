@@ -24,7 +24,6 @@ $ bundle exec rake parallel:spec
 ## I'm intended to use this project as a playground for cool stuff
 * [Trailblazer](http://trailblazer.to/)
 * [Falcon](https://github.com/socketry/falcon)
-* [Webpacker](https://github.com/rails/webpacker)
 * [Encrypting User Email](https://ankane.org/securing-user-emails-in-rails/)
 * [Action Text](https://github.com/rails/actiontext)
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
@@ -40,7 +39,6 @@ $ bundle exec rake parallel:spec
 * Add user comments (maybe post subclass)
 * Add pagination
 * Encrypt user emails
-* Switch from sprockets to webpacker
 * Implement Falcon server
 
 ### DONE:

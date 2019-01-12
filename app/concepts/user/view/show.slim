@@ -9,9 +9,11 @@
   .cell
     p= "About me: #{profile.about_me}"
 
-- if page_owner?
-  .cell
+.cell
+  - if page_owner?
     = link_to "Edit Profile", edit_user_path(model), class: "button"
+  - else
+    = link_to "Message", user_messages_path(model), class: "button"
 
 - if page_owner?
   = cell(Post::Cell::New, new_post)

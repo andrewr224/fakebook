@@ -1,0 +1,20 @@
+.grid-x
+  .cell
+    h3= "Your dialogue with #{user_name}"
+
+    .text-right
+      = cell(Fakebook::Cell::BackLink, nil)
+
+.grid-x
+  - if messages.none?
+    p.subheader It's a nice time to start your dialogue.
+
+  .cell.messages
+    / move to a cell, show first name + last name, show timestamp
+    - messages.each do |message|
+      p= message.text
+      p= author_name(message)
+
+
+  .cell
+    = cell(Message::Cell::New, new_message, dialogue: model)

@@ -38,7 +38,7 @@ describe Post::Create do
       expect(result["model"]).to be_a Post
     end
 
-    context "without user" do
+    context "without a user" do
       let(:post_params)  { attributes_for(:post) }
       let(:current_user) { nil }
 

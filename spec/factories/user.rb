@@ -8,5 +8,11 @@ FactoryBot.define do
     trait :with_profile do
       association :profile, strategy: :build
     end
+
+    trait :with_dialogue do
+      after(:create) do |user|
+        create(:dialogue, users: [user])
+      end
+    end
   end
 end
