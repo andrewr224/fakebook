@@ -10,11 +10,8 @@
     p.subheader It's a nice time to start your dialogue.
 
   .cell.messages
-    / move to a cell, show first name + last name, show timestamp
     - messages.each do |message|
-      p= message.text
-      p= author_name(message)
-
+      = cell(Message::Cell::Show, message)
 
   .cell
     = cell(Message::Cell::New, new_message, dialogue: model)

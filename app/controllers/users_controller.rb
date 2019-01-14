@@ -2,9 +2,14 @@
 
 class UsersController < ApplicationController
   before_action :process_create_params!, only: :create
-  before_action :process_params!,        only: [:show, :edit, :update]
+  before_action :process_params!,        only: [:index, :show, :edit, :update]
 
   skip_before_action :require_login, only: [:new, :create]
+
+  def index
+    run User::Index
+    render cell(User::Cell::Index, result["model"])
+  end
 
   def new
     run User::Create::Present
@@ -45,6 +50,10 @@ class UsersController < ApplicationController
     end
 
     render cell(User::Cell::Edit, @form)
+  end
+
+  def destroy
+
   end
 
   private

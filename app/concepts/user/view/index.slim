@@ -1,0 +1,8 @@
+.grid-x
+  .cell
+    .text-right
+      = cell(Fakebook::Cell::BackLink, nil)
+
+.grid-x.users
+  - model.each do |user|
+    = cell(User::Cell::User, user)

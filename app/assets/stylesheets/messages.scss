@@ -3,3 +3,16 @@
 #new_message {
   min-width: 50%;
 }
+
+.message-container {
+  margin-top: 14px;
+  border-bottom: 1px solid $background-secondary;
+
+  .author {
+    font-weight: bold;
+  }
+
+  .message {
+    padding-left: 14px;
+  }
+}

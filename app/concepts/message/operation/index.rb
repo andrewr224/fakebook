@@ -3,6 +3,7 @@
 class Message::Index < Trailblazer::Operation
   step    :current_user!
   step    :find_user!
+  step    :ensure_different_user!
   failure :default_dialogue!, fail_fast: true
   step    :find_dialogue!
   failure :create_dialogue!
@@ -13,6 +14,10 @@ class Message::Index < Trailblazer::Operation
 
   def find_user!(options, params:, **)
     options["user"] = User.find_by(id: params[:user_id])
+  end
+
+  def ensure_different_user!(options, **)
+    options["user"] != options["current_user"]
   end
 
   def default_dialogue!(options, **)

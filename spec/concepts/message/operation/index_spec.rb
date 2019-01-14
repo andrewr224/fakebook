@@ -63,4 +63,16 @@ describe Message::Index do
       end
     end
   end
+
+  context "when it's the same user" do
+    let(:user) { current_user }
+
+    it "returns nil" do
+      expect(result["model"]).to be nil
+    end
+
+    it "doesn't create a new dialogue" do
+      expect { result }.not_to change(Dialogue, :count)
+    end
+  end
 end

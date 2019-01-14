@@ -12,10 +12,6 @@ module Message::Cell
       "#{profile.first_name} #{profile.last_name}" if profile.present?
     end
 
-    def author_name(message)
-      message.user.profile.first_name
-    end
-
     def new_message
       Message.new
     end
@@ -25,7 +21,7 @@ module Message::Cell
     delegate :profile, to: :user, allow_nil: true
 
     def user
-      @user || User.find(params[:user_id])
+      @user || User.find_by(id: params[:user_id])
     end
   end
 end
