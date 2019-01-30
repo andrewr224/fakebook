@@ -4,8 +4,12 @@ class MessagesController < ApplicationController
   before_action :merge_current_user!, only: [:index, :create]
 
   def index
-    run Message::Index
-    render cell(Message::Cell::Index, result["model"])
+    run Message::Index do |result|
+      return render cell(Message::Cell::Index, result["model"])
+    end
+
+    flash[:alert] = "Something went wrong"
+    redirect_back fallback_location: root_path
   end
 
   def create

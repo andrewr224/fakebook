@@ -25,6 +25,10 @@ describe Message::Index do
     it "returns a dialogue" do
       expect(result["model"]).to be_a Dialogue
     end
+
+    it "is success" do
+      expect(result).to be_success
+    end
   end
 
   context "when there is no dialogue between users" do
@@ -35,44 +39,43 @@ describe Message::Index do
     it "returns a dialogue" do
       expect(result["model"]).to be_a Dialogue
     end
+
+    it "is success" do
+      expect(result).to be_success
+    end
   end
 
-  context "when there is no user" do
-    let(:params) { { current_user: current_user } }
-
-    context "when current user has other dialogues" do
-      let!(:current_user) { create(:user, :with_dialogue) }
-      let(:dialogue)      { current_user.dialogues.first }
+  context "with invalid params" do
+    context "when there is no user" do
+      let(:params) { { current_user: current_user } }
 
       it "doesn't create a new dialogue" do
         expect { result }.not_to change(Dialogue, :count)
       end
 
-      it "returns an existing dialogue" do
-        expect(result["model"]).to eq dialogue
+      it "is falsy" do
+        expect(result).to be_failure
+      end
+
+      it "retuns nil" do
+        expect(result["model"]).to be_nil
       end
     end
 
-    context "when current user has no other dialogues" do
+    context "when it's the same user" do
+      let(:user) { current_user }
+
       it "doesn't create a new dialogue" do
         expect { result }.not_to change(Dialogue, :count)
       end
 
-      it "returns nil" do
-        expect(result["model"]).to be nil
+      it "is falsy" do
+        expect(result).to be_failure
       end
-    end
-  end
 
-  context "when it's the same user" do
-    let(:user) { current_user }
-
-    it "returns nil" do
-      expect(result["model"]).to be nil
-    end
-
-    it "doesn't create a new dialogue" do
-      expect { result }.not_to change(Dialogue, :count)
+      it "retuns nil" do
+        expect(result["model"]).to be_nil
+      end
     end
   end
 end

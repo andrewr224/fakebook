@@ -12,11 +12,11 @@ class User::Create < Trailblazer::Operation
   step :assign_profile!
   step :add_welcome_message!
 
-  def assign_profile!(options, **)
-    options["profile"] = options["model"].profile
+  def assign_profile!(options, model:, **)
+    options["profile"] = model.profile
   end
 
-  def add_welcome_message!(options, **)
-    options["message"] = "Greetings, #{options['profile'].first_name}!"
+  def add_welcome_message!(options, profile:, **)
+    options["message"] = "Greetings, #{profile.first_name}!"
   end
 end

@@ -4,7 +4,7 @@
 
 ### This is the final project from [Odin Project](https://www.theodinproject.com), the best code school on the internet
 
-## You can check it on [Heroku](https://shielded-shelf-45678.herokuapp.com/)
+## You can check it on [Heroku](https://fakebook-45678.herokuapp.com)
 
 ## Ramp up
 ```sh
@@ -29,7 +29,6 @@ $ bundle exec rake parallel:spec
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
 ### TODO:
-* Add messages
 * Add user friends
 * Refine user news to show only friends posts [?]
 * Implement Actiontext
@@ -42,6 +41,7 @@ $ bundle exec rake parallel:spec
 * Implement Falcon server
 
 ### DONE:
+* Add messages
 * Add policy
 * Add user edit
 * Add style to the project
@@ -54,5 +54,4 @@ $ bundle exec rake parallel:spec
 
 ## Notes on the technologies I've used
 [Trailblazer](http://trailblazer.to/). To begin with, I'm eager to try it with something other than Rails.
-As it is, I'm a good deal disappointed with Trailblazer + Rails combo. I might have been just lucky enough to have used versions of Rails and Trailblazer that are incompatible, but I've experienced bugs on every stage of the implementation, and it felt too much like hacking to my licking. Trailblazer's approach of simply blaming Rails wasn't helpful either.
-Take the `cell` layer, for example. Works fine when you render a cell from within another one, but when I call it in the application it returns a string, and I have to call `#html_safe` to render it. What the heck?
+As it is, I'm a good deal disappointed with Trailblazer + Rails combo. I might have been just lucky enough to have used versions of Rails and Trailblazer that are incompatible, but I've experienced bugs on every stage of the implementation, and it felt too much like hacking to my licking.

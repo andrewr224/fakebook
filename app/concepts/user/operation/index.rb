@@ -8,7 +8,7 @@ class User::Index < Trailblazer::Operation
     options["current_user"] = params["current_user"]
   end
 
-  def model!(options, *)
-    options["model"] = User.where.not(id: options["current_user"].id)
+  def model!(options, current_user:, **)
+    options["model"] = User.where.not(id: current_user.id)
   end
 end
