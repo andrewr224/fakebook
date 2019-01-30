@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :process_create_params!, only: :create
-  before_action :process_params!,        only: [:index, :show, :edit, :update]
+  before_action :process_create_params!, only:   :create
+  before_action :process_params!,        except: [:new, :create]
 
   skip_before_action :require_login, only: [:new, :create]
 
@@ -53,7 +53,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    run User::Delete
 
+    flash[:alert] = "Your profile has been deleted. Farewell, my dear!"
+    redirect_to new_user_path
   end
 
   private

@@ -32,6 +32,9 @@
 
       .field
         = f.submit "Update", class: "button"
+        = link_to "Delete Profile", user_path(model), method: :delete,
+          class: "alert button delete-button",
+          data: { confirm: "You are deleting your Fakebook profile. This cannot be undone. Do you with to continue?" }
 
     .cell
       = cell(Fakebook::Cell::BackLink, nil)
