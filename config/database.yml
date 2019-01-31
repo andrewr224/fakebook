@@ -15,11 +15,8 @@
 # gem 'pg'
 #
 default: &default
-  adapter:  postgresql
+  adapter: postgresql
   encoding: unicode
-  host:     localhost
-  username: <%= Rails.application.credentials.database[:user_name] %>
-  password: <%= Rails.application.credentials.database[:password] %>
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -47,7 +44,7 @@ development:
   #port: 5432
 
   # Schema search path. The server defaults to $user,public
-  #schema_search_path: myapp,sharedapp,public
+  #schema_search_path: fakebook,sharedapp,public
 
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,

@@ -4,7 +4,7 @@
 
 ### This is the final project from [Odin Project](https://www.theodinproject.com), the best code school on the internet
 
-## You can check it on [Heroku](https://fakebook-45678.herokuapp.com)
+## You can check it on [Heroku](https://fake-book-app.herokuapp.com/users/new)
 
 ## Ramp up
 ```sh
@@ -22,9 +22,9 @@ $ bundle exec rake parallel:spec
 ```
 
 ## I'm intended to use this project as a playground for cool stuff
-* [Trailblazer](http://trailblazer.to/)
+* [Trailblazer](http://trailblazer.to)
 * [Falcon](https://github.com/socketry/falcon)
-* [Encrypting User Email](https://ankane.org/securing-user-emails-in-rails/)
+* [Encrypting User Email](https://ankane.org/securing-user-emails-in-rails)
 * [Action Text](https://github.com/rails/actiontext)
 * [Parallel Tests](https://github.com/grosser/parallel_tests)
 
