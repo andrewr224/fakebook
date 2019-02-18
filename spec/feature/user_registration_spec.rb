@@ -5,8 +5,8 @@ require "rails_helper"
 feature "User Registration" do
   let(:email)      { Faker::Internet.email }
   let(:password)   { Faker::Internet.password(4, 5) }
-  let(:first_name) { Faker::Name.first_name }
-  let(:last_name)  { Faker::Name.last_name }
+  let(:first_name) { Faker::Name.first_name.to(15) }
+  let(:last_name)  { Faker::Name.last_name.to(15) }
   let(:birthday)   { Faker::Date.between(60.years.ago, 18.years.ago) }
   let(:sex)        { %i[profile_sex_male profile_sex_female].sample }
 

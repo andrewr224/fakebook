@@ -5,7 +5,7 @@ require "rails_helper"
 feature "User Edit" do
   let(:user)         { create(:user, :with_profile) }
   let(:current_user) { user }
-  let(:about_me)     { Faker::MostInterestingManInTheWorld.quote }
+  let(:about_me)     { Faker::MostInterestingManInTheWorld.quote.to(35) }
 
   before do
     login current_user

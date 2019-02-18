@@ -1,13 +1,13 @@
 .grid-x
   .cell.text-center
-    h1= full_name
+    h1= sanitize full_name
 
   .cell
     p= "Birthday: #{birthday}"
 
 - if profile.about_me.present?
   .cell
-    p= "About me: #{profile.about_me}"
+    p= "About me: #{sanitize(profile.about_me)}"
 
 .cell
   - if page_owner?

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    email    { Faker::Internet.email }
+    email    { Faker::Internet.email.to(19) }
     password { Faker::Internet.password(4, 5) }
 
     trait :with_profile do

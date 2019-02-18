@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :post do
-    body { Faker::MostInterestingManInTheWorld.quote }
+    body { Faker::MostInterestingManInTheWorld.quote.to(100) }
 
     association :user, :with_profile, strategy: :build
   end

@@ -1,3 +1,3 @@
 .cell
-  h3.user-name= full_name
-  = link_to "Message", user_messages_path(model), class: "button"
+  h3.user-name= sanitize full_name
+  = link_to "Message", user_messages_path(model), class: "button right"

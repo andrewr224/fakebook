@@ -3,10 +3,12 @@
 module User::Contract
   class Create < Reform::Form
     property :email, validates: {
-      presence: true, format: { with: %r{\A[^@\s]+@[^@\s]+\z} }
+      presence: true,
+      length:   { in: 6..50 },
+      format:   { with: %r{\A[^@\s]+@[^@\s]+\z} }
     }
 
-    property :password, validates: { presence: true, length: { minimum: 4 } }
+    property :password, validates: { presence: true, length: { in: 4..20 } }
 
     property :profile, form:              Profile::Contract::Create,
                        populate_if_empty: Profile,

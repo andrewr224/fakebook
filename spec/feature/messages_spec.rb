@@ -7,7 +7,7 @@ feature "Messages" do
   let(:current_user) { create(:user, :with_profile) }
   let(:dialogue)     { create(:dialogue, users: [user, current_user]) }
   let!(:message)     { create(:message, user: user, dialogue: dialogue) }
-  let(:new_message)  { Faker::HitchhikersGuideToTheGalaxy.quote }
+  let(:new_message)  { Faker::HitchhikersGuideToTheGalaxy.quote.to(35).strip }
 
   before do
     login current_user
